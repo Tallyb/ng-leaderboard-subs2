@@ -1,0 +1,18 @@
+<div ng-controller="leaderBoardCtrl">
+    <h2> Top players</h2>
+    <ol class="leaderboard" >
+        <li ng-repeat = "player in topPlayers track by player._id" class="player">
+            <span class="name">{{player.name}}</span>
+            <span class="score">{{player.score}}</span>
+        </li>
+    </ol>
+
+    <h2> First players</h2>
+    <ol class="leaderboard" >
+        <li ng-repeat = "player in firstPlayers track by player._id" class="player">
+            <span class="name">{{player.name}}</span>
+            <span class="score">{{player.score}}</span>
+        </li>
+    </ol>
+</div>
+
