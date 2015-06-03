@@ -1,5 +1,6 @@
 <div ng-controller="leaderBoardCtrl">
     <h2> Top players</h2>
+    <button ng-click="stopHandle (0)"> Stop Subscription </button>
     <ol class="leaderboard" >
         <li ng-repeat = "player in topPlayers track by player._id" class="player">
             <span class="name">{{player.name}}</span>
@@ -8,6 +9,7 @@
     </ol>
 
     <h2> First players</h2>
+    <button ng-click="stopHandle (1)"> Stop Subscription </button>
     <ol class="leaderboard" >
         <li ng-repeat = "player in firstPlayers track by player._id" class="player">
             <span class="name">{{player.name}}</span>
