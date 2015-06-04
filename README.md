@@ -17,7 +17,7 @@ console.table(Players.find().fetch())
 Your local DB should have 0 documents if both subscriptions are inactive, and between 3 and 5 documents if both subscriptions are active (2 if both subscriptions fully overlap, 5 if totally not overlap). 
 
 When you will stop the top subscription you will be left with 3 documents. 
-You will still see 2 players in the list but they will be the top 2 by scores from the first 3 alphabetically sort (Einstein, Gauss, Shannon).
+You will still see 2 players in the list but they will be the top 2 by scores from the first 3 alphabetically sort ( Lovelace, Einstein, Gauss).
 
 Stopping the buttom subscription will leave you with 2 records (only one subscription is active and it returns 2 documents). Both documents will be shown at the top and bottom, but sorted accordingly (score, name).  
 
