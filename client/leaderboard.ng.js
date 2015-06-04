@@ -8,23 +8,30 @@ angular.module('LeaderBoard',[
 
 .controller ('leaderBoardCtrl', function ($scope, $meteor){
 
-    var handles = [];
-    $meteor.subscribe('topPlayers').then(function(handle) {
-        handles [0] = handle;
-        $scope.topPlayers = $meteor.collection(function (){
-          return Players.find ({}, {sort: {score: -1}, limit: 2});
+    $scope.handles = [];
+    $scope.startTop = function () {
+        return $meteor.subscribe('topPlayers').then(function(handle) {
+            $scope.handles [0] = handle;
+            $scope.topPlayers = $meteor.collection(function (){
+                return Players.find ({}, {sort: {score: -1}, limit: 2});
+            });
         });
-    });
+    };
 
-    $meteor.subscribe('firstPlayers').then(function(handle) {
-        handles [1] = handle;
-        $scope.firstPlayers = $meteor.collection(function (){
-            return Players.find ({}, {sort: {name: 1}, limit: 3});
+    $scope.startFirst = function (){
+        return $meteor.subscribe('firstPlayers').then(function(handle) {
+            $scope.handles [1] = handle;
+            $scope.firstPlayers = $meteor.collection(function (){
+                return Players.find ({}, {sort: {name: 1}, limit: 3});
+            });
         });
-    });
+
+    };
 
     $scope.stopHandle = function (handleId){
-        handles [handleId].stop();
+        $scope.handles [handleId].stop();
+        $scope.handles [handleId] = undefined;
+
     }
 
 });
