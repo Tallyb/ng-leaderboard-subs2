@@ -24,8 +24,8 @@ Meteor.startup(function () {
 });
 
 Meteor.publish('topPlayers', function (){
-    return Players.find({}, {sort: {score: -1}, limit: 2});
+    return Players.find({}, {sort: {score: -1}, limit: 3});
 });
 Meteor.publish('firstPlayers', function (){
-    return Players.find({}, {sort: {name: 1}, limit: 3});
+    return Players.find({}, {sort: {name: 1}, limit: 4});
 });
