@@ -1,8 +1,7 @@
 <div ng-controller="leaderBoardCtrl">
     <h2> Top players </h2>
-    <button class="btn" ng-click="startTop()"> Start Subscription </button>
-    <button class="btn" ng-click="stopHandle (0)"> Stop Subscription </button>
-    <span ng-show = "handles[0]"> Active </span>
+    <button class="btn" ng-click="startTop()" ng-show = "!handles[0]"> Start Subscription </button>
+    <button class="btn" ng-click="stopHandle (0)" ng-show = "handles[0]"> Stop Subscription </button>
     <ol class="leaderboard" >
         <li ng-repeat = "player in topPlayers track by player._id" class="player">
             <span class="name">{{player.name}}</span>
@@ -11,9 +10,8 @@
     </ol>
 
     <h2> First players </h2>
-    <button class="btn" ng-click="startFirst()"> Start Subscription </button>
-    <button class="btn" ng-click="stopHandle (1)"> Stop Subscription </button>
-    <span ng-show = "handles[1]"> Active </span>
+    <button class="btn" ng-click="startFirst()" ng-show = "!handles[1]" > Start Subscription </button>
+    <button class="btn" ng-click="stopHandle (1)" ng-show = "handles[1]"> Stop Subscription </button>
 
     <ol class="leaderboard" >
         <li ng-repeat = "player in firstPlayers track by player._id" class="player">
