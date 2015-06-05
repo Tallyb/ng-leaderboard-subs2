@@ -1,23 +1,18 @@
 <div ng-controller="leaderBoardCtrl">
-    <h2> Top players </h2>
-    <button class="btn" ng-click="startTop()" ng-show = "!handles[0]"> Start Subscription </button>
-    <button class="btn" ng-click="stopHandle (0)" ng-show = "handles[0]"> Stop Subscription </button>
+    <div class="subtitle">Display all players in collection </div>
     <ol class="leaderboard" >
-        <li ng-repeat = "player in topPlayers track by player._id" class="player">
+        <li ng-repeat = "player in players track by player._id" class="player">
             <span class="name">{{player.name}}</span>
             <span class="score">{{player.score}}</span>
         </li>
     </ol>
 
-    <h2> First players </h2>
-    <button class="btn" ng-click="startFirst()" ng-show = "!handles[1]" > Start Subscription </button>
-    <button class="btn" ng-click="stopHandle (1)" ng-show = "handles[1]"> Stop Subscription </button>
-
-    <ol class="leaderboard" >
-        <li ng-repeat = "player in firstPlayers track by player._id" class="player">
-            <span class="name">{{player.name}}</span>
-            <span class="score">{{player.score}}</span>
+    <ul class="subscription-list">
+        <li ng-repeat = "sub in subscriptions" class="subscription">
+            <span class="subtitle"> {{sub.name}}</span>
+            <span class="subscription-btn" ng-click="startHandle (sub)" ng-show = "!sub.handle"> Start Subscription </span>
+            <span class="subscription-btn" ng-click="stopHandle (sub)" ng-show = "sub.handle"> Stop Subscription </span>
         </li>
-    </ol>
+    </ul>
 </div>
 
