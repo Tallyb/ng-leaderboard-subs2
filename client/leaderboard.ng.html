@@ -7,6 +7,15 @@
         </li>
     </ol>
 
+    <div class="subtitle">Display top 2 scored players in local collection </div>
+    <ol class="leaderboard" >
+        <li ng-repeat = "player in topPlayers track by player._id" class="player">
+            <span class="name">{{player.name}}</span>
+            <span class="score">{{player.score}}</span>
+        </li>
+    </ol>
+
+
     <ul class="subscription-list">
         <li ng-repeat = "sub in subscriptions" class="subscription">
             <span class="subtitle"> {{sub.name}}</span>

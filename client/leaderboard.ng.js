@@ -9,6 +9,9 @@ angular.module('LeaderBoard',[
 .controller ('leaderBoardCtrl', function ($scope, $meteor){
 
     $scope.players = $meteor.collection (Players);
+    $scope.topPlayers = $meteor.collection (function (){
+        return Players.find ({}, {sort: {score: -1}, limit: 2});
+    });
 
     // Here you can define multiple subscriptions. The correstponding server subscriptions are on server/leaderboard.js
     $scope.subscriptions = [
