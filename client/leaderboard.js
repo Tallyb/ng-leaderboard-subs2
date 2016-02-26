@@ -8,6 +8,17 @@ angular.module('LeaderBoard',[
 
 .controller ('leaderBoardCtrl', function ($scope, $reactive){
 
+    //this function takes the first letters from the player name and convert into initials which is added to the top players only.
+    function transform (doc) {
+        let initials  = _.reduce (doc.name.split (/\s*[\s,]\s*/), (v, e)=> {
+            return v+e[0];
+        }, "");
+        _.extend (doc, {initials: initials});
+        return doc;
+    }
+
+
+
     //if you are using the controllerAs vm syntax, as defined as best practice. you should write
     //var vm=this;
     // and then should make vm a reactive variable
@@ -25,7 +36,7 @@ angular.module('LeaderBoard',[
 
         // This Mongo Cursor collection returns only the top 2 players that exist in the local minimongo collection
         topPlayers: function (){ //ES5 syntax
-           return Players.find ({}, {sort: {score: -1}, limit: 2});
+           return Players.find ({}, {sort: {score: -1}, limit: 2, transform: transform});
         }
     });
 

@@ -13,7 +13,7 @@
     <div class="subtitle">Display top 2 scored players in local collection </div>
     <ol class="leaderboard" >
         <li ng-repeat = "player in topPlayers track by player._id" class="player">
-            <span class="name">{{player.name}}</span>
+            <span class="name">{{player.name}}&nbsp; {{player.initials}} </span>
             <span class="score">{{player.score}}</span>
         </li>
     </ol>
