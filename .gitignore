@@ -1,0 +1,11 @@
+### Example user template template
+### Example user template
+
+# IntelliJ project files
+.idea
+*.iml
+npm-debug.log
+node_modules
+*.min.css
+*.min.js
+.build*

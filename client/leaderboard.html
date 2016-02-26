@@ -1,4 +1,6 @@
 <div ng-controller="leaderBoardCtrl">
+
+    <!-- here we show the all the players players from the local minimongo subscription-->
     <div class="subtitle">Display all players in collection </div>
     <ol class="leaderboard" >
         <li ng-repeat = "player in players track by player._id" class="player">
@@ -7,6 +9,7 @@
         </li>
     </ol>
 
+    <!-- here we show the top 2 players from the local minimongo subscription-->
     <div class="subtitle">Display top 2 scored players in local collection </div>
     <ol class="leaderboard" >
         <li ng-repeat = "player in topPlayers track by player._id" class="player">
@@ -19,6 +22,7 @@
     <ul class="subscription-list">
         <li ng-repeat = "sub in subscriptions" class="subscription">
             <span class="subtitle"> {{sub.name}}</span>
+            <!-- we show a start or stop button if a handler exists or not -->
             <span class="subscription-btn" ng-click="startHandle (sub)" ng-show = "!sub.handle"> Start Subscription </span>
             <span class="subscription-btn" ng-click="stopHandle (sub)" ng-show = "sub.handle"> Stop Subscription </span>
         </li>
