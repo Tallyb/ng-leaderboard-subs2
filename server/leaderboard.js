@@ -2,7 +2,7 @@
  * Created by Tally on 02/06/2015.
  */
 Meteor.startup(function () {
-    Players.remove();
+    Players.remove({});
     var names = ["Ada Lovelace",
         "Grace Hopper",
         "Marie Curie",
